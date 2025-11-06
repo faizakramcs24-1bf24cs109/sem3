@@ -52,18 +52,26 @@ void displayList(struct Node* head) {
     }
     printf("NULL\n");
 }
-void insafter(struct Node** head, int after_which_val, int val){
+void insafter(struct Node** head, int pos, int val){
     struct Node* newnode= createNode(val);
-    struct Node* temp= *head;
 
-    while(temp->data!=after_which_val){
-        temp=temp->next;
+   struct Node* temp = *head;
+    int i;
+
+   
+    for (i = 1; i < pos && temp != NULL; i++) {
+        temp = temp->next;
     }
-    struct Node* t2;
-    t2=temp->next;
-    temp->next=newnode;
-    newnode->next=t2;
-}
+
+    if (temp == NULL) {
+        printf("Position out of range! Node not inserted.\n");
+        free(newnode);
+        return;
+    }
+
+   
+    newnode->next = temp->next;
+    temp->next = newnode;}
 
 void freeList(struct Node* head) {
     struct Node* temp;
@@ -108,7 +116,7 @@ int main() {
             
             case 4:
                 
-                printf("Enter value after which u wanna insert: ");
+                printf("Enter position in which u wanna enter ");
                 scanf("%d", &value);
                 printf("Enter value to insert: ");
                 scanf("%d", &a);
