@@ -6,7 +6,7 @@ struct Node {
     struct Node *next;
 };
 
-// Function to create a new node
+
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -14,7 +14,7 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Insert node at end
+
 void insertEnd(struct Node **head, int data) {
     struct Node *newNode = createNode(data);
     if (*head == NULL) {
@@ -27,10 +27,10 @@ void insertEnd(struct Node **head, int data) {
     temp->next = newNode;
 }
 
-// Display list
+
 void display(struct Node *head) {
     if (head == NULL) {
-        printf("List is empty.\n");
+        printf("List empty.\n");
         return;
     }
     struct Node *temp = head;
@@ -41,10 +41,10 @@ void display(struct Node *head) {
     printf("NULL\n");
 }
 
-// Delete from beginning
-void deleteStart(struct Node **head) {
+
+void deletefirst(struct Node **head) {
     if (*head == NULL) {
-        printf("List is empty.\n");
+        printf("List empty.\n");
         return;
     }
     struct Node *temp = *head;
@@ -52,10 +52,10 @@ void deleteStart(struct Node **head) {
     free(temp);
 }
 
-// Delete from end
+
 void deleteEnd(struct Node **head) {
     if (*head == NULL) {
-        printf("List is empty.\n");
+        printf("List empty.\n");
         return;
     }
     struct Node *temp = *head;
@@ -70,10 +70,9 @@ void deleteEnd(struct Node **head) {
     temp->next = NULL;
 }
 
-// Delete from any position
 void deletePosition(struct Node **head, int pos) {
     if (*head == NULL) {
-        printf("List is empty.\n");
+        printf("List empty.\n");
         return;
     }
     if (pos == 1) {
@@ -94,7 +93,7 @@ void deletePosition(struct Node **head, int pos) {
     free(toDelete);
 }
 
-// Sort the linked list (ascending)
+
 void sortList(struct Node *head) {
     if (head == NULL)
         return;
@@ -112,7 +111,7 @@ void sortList(struct Node *head) {
     }
 }
 
-// Reverse the linked list
+
 void reverseList(struct Node **head) {
     struct Node *prev = NULL, *curr = *head, *next = NULL;
     while (curr != NULL) {
@@ -124,7 +123,7 @@ void reverseList(struct Node **head) {
     *head = prev;
 }
 
-// Concatenate two linked lists
+
 struct Node* concatenate(struct Node *head1, struct Node *head2) {
     if (head1 == NULL) return head2;
     if (head2 == NULL) return head1;
@@ -166,7 +165,7 @@ int main() {
             display(list1);
             break;
         case 3:
-            deleteStart(&list1);
+            deletefirst(&list1);
             break;
         case 4:
             deleteEnd(&list1);
