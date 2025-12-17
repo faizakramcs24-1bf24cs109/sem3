@@ -1,4 +1,4 @@
-1. Write a program that asks the user for two numbers and prints their division. Handle the case when the user enters 0 as the denominator.
+//1. Write a program that asks the user for two numbers and prints their division. Handle the case when the user enters 0 as the denominator.
 
 class q1{
 public  q1(int a,int b){
@@ -18,6 +18,7 @@ class demo{
 
     }
 }
+
 
 
 
